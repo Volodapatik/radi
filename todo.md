@@ -44,7 +44,7 @@
 
 ## GitHub delivery
 
-- [ ] Audit tracked files for credentials, tokens, generated native directories, and unnecessary build artifacts
-- [ ] Add GitHub Actions workflow for Android APK build
-- [ ] Create private GitHub repository and push the project
-- [ ] Verify repository visibility and workflow instructions
+- [x] Audit tracked files for credentials, tokens, generated native directories, and unnecessary build artifacts
+- [x] Add GitHub Actions workflow for Android APK build
+- [x] Create private GitHub repository and push the project
+- [x] Verify repository visibility and workflow instructions
