@@ -61,6 +61,6 @@
 
 ## Upload to Volodapatik/radi
 
-- [ ] Push the complete Radio Folder Streamer source into the empty `Volodapatik/radi` repository
-- [ ] Verify the GitHub Actions workflow is visible in the repository
-- [ ] Provide the exact Termux commands to add EXPO_TOKEN and run the workflow
+- [x] Push the complete Radio Folder Streamer source into the empty `Volodapatik/radi` repository
+- [x] Verify the GitHub Actions workflow is visible in the repository
+- [x] Provide the exact Termux commands to add EXPO_TOKEN and run the workflow
