@@ -71,7 +71,7 @@ export default function HomeScreen() {
   useEffect(() => {
     void (async () => {
       const saved = await AsyncStorage.getItem(SETTINGS_KEY);
-      const savedPassword = await SecureStore.getItemAsync(PASSWORD_KEY);
+      const savedPassword = Platform.OS === "web" ? null : await SecureStore.getItemAsync(PASSWORD_KEY);
       if (saved) {
         setSettings({ ...defaultSettings, ...JSON.parse(saved) });
       }
@@ -89,7 +89,7 @@ export default function HomeScreen() {
   const saveSettings = async (next: StreamSettings = settings) => {
     setSettings(next);
     await AsyncStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
-    if (password) {
+    if (password && Platform.OS !== "web") {
       await SecureStore.setItemAsync(PASSWORD_KEY, password);
     }
   };

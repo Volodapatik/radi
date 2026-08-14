@@ -48,3 +48,7 @@
 - [x] Add GitHub Actions workflow for Android APK build
 - [x] Create private GitHub repository and push the project
 - [x] Verify repository visibility and workflow instructions
+
+## Preview crash
+
+- [x] Fix Expo SecureStore web preview crash caused by unavailable native SecureStore methods
