@@ -64,3 +64,14 @@
 - [x] Push the complete Radio Folder Streamer source into the empty `Volodapatik/radi` repository
 - [x] Verify the GitHub Actions workflow is visible in the repository
 - [x] Provide the exact Termux commands to add EXPO_TOKEN and run the workflow
+
+## EAS service outage
+
+- [ ] Retry the failed APK workflow after Expo EAS service availability returns
+- [ ] Verify whether the retry reaches the actual EAS build stage
+
+## EAS owner fix
+
+- [ ] Add Expo owner `vova202s-team` to app configuration
+- [ ] Push the owner fix to `Volodapatik/radi`
+- [ ] Re-run the APK workflow and verify EAS project resolution
