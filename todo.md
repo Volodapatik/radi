@@ -52,3 +52,15 @@
 ## Preview crash
 
 - [x] Fix Expo SecureStore web preview crash caused by unavailable native SecureStore methods
+
+## Full ZIP delivery
+
+- [x] Create a complete source ZIP suitable for GitHub Actions
+- [x] Verify the ZIP excludes secrets, node_modules, .git, and generated local artifacts
+- [x] Attach the ZIP and explain the GitHub Actions secret/setup steps
+
+## Upload to Volodapatik/radi
+
+- [ ] Push the complete Radio Folder Streamer source into the empty `Volodapatik/radi` repository
+- [ ] Verify the GitHub Actions workflow is visible in the repository
+- [ ] Provide the exact Termux commands to add EXPO_TOKEN and run the workflow
