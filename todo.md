@@ -30,3 +30,21 @@
 
 - [x] First validation uses the user's folder with 18 MP3 files
 - [x] Defer WAV, FLAC, M4A, and other format support until MP3-to-Caster.fm transmission is verified
+
+## APK build issue
+
+- [ ] Diagnose why APK cannot be built or downloaded from the latest checkpoint
+- [ ] Fix the APK build or delivery blocker
+- [ ] Re-run validation and save a corrected checkpoint
+
+## Remote APK build stall
+
+- [ ] Investigate remote Expo build stalled at 1% for more than six minutes
+- [ ] Retry build after confirming the latest checkpoint and native configuration
+
+## GitHub delivery
+
+- [ ] Audit tracked files for credentials, tokens, generated native directories, and unnecessary build artifacts
+- [ ] Add GitHub Actions workflow for Android APK build
+- [ ] Create private GitHub repository and push the project
+- [ ] Verify repository visibility and workflow instructions
