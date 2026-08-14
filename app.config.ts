@@ -32,7 +32,7 @@ const env = {
   appSlug: "radio-folder-streamer",
   // S3 URL of the app logo - set this to the URL returned by generate_image when creating custom logo
   // Leave empty to use the default icon from assets/images/icon.png
-  logoUrl: "",
+  logoUrl: "/manus-storage/radio-folder-streamer-icon_f6c7159d.png",
   scheme: schemeFromBundleId,
   iosBundleId: bundleId,
   androidPackage: bundleId,
@@ -64,7 +64,13 @@ const config: ExpoConfig = {
     edgeToEdgeEnabled: true,
     predictiveBackGestureEnabled: false,
     package: env.androidPackage,
-    permissions: ["POST_NOTIFICATIONS"],
+    permissions: [
+      "POST_NOTIFICATIONS",
+      "FOREGROUND_SERVICE",
+      "FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+      "WAKE_LOCK",
+      "RECEIVE_BOOT_COMPLETED",
+    ],
     intentFilters: [
       {
         action: "VIEW",

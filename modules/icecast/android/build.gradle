@@ -1,0 +1,31 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  namespace 'expo.modules.icecast'
+  compileSdk 35
+
+  defaultConfig {
+    minSdk 24
+  }
+
+  sourceSets {
+    main {
+      jniLibs.srcDirs = ['src/main/jniLibs']
+    }
+  }
+
+  externalNativeBuild {
+    ndkBuild {
+      path file('src/main/jni/Android.mk')
+    }
+  }
+}
+
+dependencies {
+  implementation project(':expo-modules-core')
+  implementation 'androidx.core:core:1.13.1'
+  implementation 'androidx.documentfile:documentfile:1.0.1'
+}
