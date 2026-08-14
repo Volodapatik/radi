@@ -75,3 +75,8 @@
 - [x] Add Expo owner `vova202s-team` to app configuration
 - [x] Push the owner fix to `Volodapatik/radi`
 - [ ] Re-run the APK workflow and verify EAS project resolution
+
+## EAS config visibility check
+
+- [ ] Verify `eas.json` exists in `Volodapatik/radi` main at the workflow checkout commit
+- [ ] Confirm the workflow builds from main and does not overwrite or omit eas.json
