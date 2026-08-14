@@ -72,6 +72,6 @@
 
 ## EAS owner fix
 
-- [ ] Add Expo owner `vova202s-team` to app configuration
-- [ ] Push the owner fix to `Volodapatik/radi`
+- [x] Add Expo owner `vova202s-team` to app configuration
+- [x] Push the owner fix to `Volodapatik/radi`
 - [ ] Re-run the APK workflow and verify EAS project resolution
