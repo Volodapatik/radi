@@ -63,8 +63,8 @@ typedef int sock_t;
 #define SOCK_ERROR -1
 #define SOCK_TIMEOUT -2
 
-#define SOCK_BLOCK 0
-#define SOCK_NONBLOCK 1
+#define SHOUT_SOCK_BLOCK 0
+#define SHOUT_SOCK_NONBLOCK 1
 
 /* sock connect macro */
 #define sock_connect(h, p) sock_connect_wto(h, p, 0)

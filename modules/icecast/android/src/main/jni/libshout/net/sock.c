@@ -218,8 +218,8 @@ int inet_aton(const char *s, struct in_addr *a)
 /* sock_set_blocking
 **
 ** set the sock blocking or nonblocking
-** SOCK_BLOCK for blocking
-** SOCK_NONBLOCK for nonblocking
+** SHOUT_SOCK_BLOCK for blocking
+** SHOUT_SOCK_NONBLOCK for nonblocking
 */
 int sock_set_blocking(sock_t sock, const int block)
 {
@@ -237,7 +237,7 @@ int sock_set_blocking(sock_t sock, const int block)
 #ifdef _WIN32
     return ioctlsocket(sock, FIONBIO, &varblock);
 #else
-    return fcntl(sock, F_SETFL, (block == SOCK_BLOCK) ? 0 : O_NONBLOCK);
+    return fcntl(sock, F_SETFL, (block == SHOUT_SOCK_BLOCK) ? 0 : O_NONBLOCK);
 #endif
 }
 
@@ -547,7 +547,7 @@ int sock_connect_non_blocking (const char *hostname, const unsigned port)
         if ((sock = socket (ai->ai_family, ai->ai_socktype, ai->ai_protocol)) 
                 > -1)
         {
-            sock_set_blocking (sock, SOCK_NONBLOCK);
+            sock_set_blocking (sock, SHOUT_SOCK_NONBLOCK);
             if (connect(sock, ai->ai_addr, ai->ai_addrlen) < 0 && 
                     !sock_connect_pending(sock_error()))
             {
@@ -591,7 +591,7 @@ sock_t sock_connect_wto(const char *hostname, int port, int timeout)
             if (timeout > 0)
             {
 
-                sock_set_blocking (sock, SOCK_NONBLOCK);
+                sock_set_blocking (sock, SHOUT_SOCK_NONBLOCK);
 
             }
 
@@ -620,7 +620,7 @@ sock_t sock_connect_wto(const char *hostname, int port, int timeout)
                         if (timeout >= 0)
                         {
 
-                            sock_set_blocking(sock, SOCK_BLOCK);
+                            sock_set_blocking(sock, SHOUT_SOCK_BLOCK);
 
                         }
                         break;
@@ -699,7 +699,7 @@ int sock_connect_non_blocking (const char *hostname, const unsigned port)
     if (sock == -1)
         return -1;
 
-    sock_set_blocking (sock, SOCK_NONBLOCK);
+    sock_set_blocking (sock, SHOUT_SOCK_NONBLOCK);
     sock_try_connection (sock, hostname, port);
     
     return sock;
@@ -720,7 +720,7 @@ sock_t sock_connect_wto(const char *hostname, const int port, const int timeout)
     if (timeout)
     {
 
-        sock_set_blocking (sock, SOCK_NONBLOCK);
+        sock_set_blocking (sock, SHOUT_SOCK_NONBLOCK);
         if (sock_try_connection (sock, hostname, port) < 0)
         {
 
@@ -733,7 +733,7 @@ sock_t sock_connect_wto(const char *hostname, const int port, const int timeout)
             }
         }
 
-        sock_set_blocking(sock, SOCK_BLOCK);
+        sock_set_blocking(sock, SHOUT_SOCK_BLOCK);
     }
     else
     {
