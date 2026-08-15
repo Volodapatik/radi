@@ -127,3 +127,11 @@
 - [ ] Verify libshout handshake, host/port, username, mount point, password, and stream format
 - [x] Make app status reflect actual server connection and first successful audio send
 - [x] Build and test a corrected APK against the user's Caster.fm channel
+
+## Socket error after successful On Air
+
+- [ ] Add native reconnect after a transient Caster.fm socket error
+- [ ] Retry the failed MP3 send after reconnect before stopping the service
+- [ ] Keep the foreground service alive and update status during reconnect backoff
+- [ ] Verify MP3 pacing and long-running stream behavior on the Android device
+- [ ] Build and test a corrected APK with automatic socket recovery

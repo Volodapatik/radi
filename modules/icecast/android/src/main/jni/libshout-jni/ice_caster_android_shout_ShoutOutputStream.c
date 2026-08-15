@@ -75,13 +75,19 @@ int init_icecast(unsigned char *urlservercastA,int puertocast,unsigned char *mon
 
 jint Java_ice_caster_android_shout_ShoutOutputStream_jniSend(JNIEnv *env, jobject obj, jbyteArray array, jint lengthOfArray) {
 	jbyte* pBuffer = (*env)->GetByteArrayElements(env, array, NULL);
+	jint result = -1;
 
-	if (shout_send(shout, (char *)pBuffer, (int) lengthOfArray) != SHOUTERR_SUCCESS) {
+	if (pBuffer == NULL || shout == NULL) {
 		return -1;
-	}		
-	shout_sync(shout);
-	(*env)->ReleaseByteArrayElements(env, array, pBuffer, 0);
-	return 1;
+	}
+
+	if (shout_send(shout, (const unsigned char *)pBuffer, (size_t) lengthOfArray) == SHOUTERR_SUCCESS) {
+		shout_sync(shout);
+		result = 1;
+	}
+
+	(*env)->ReleaseByteArrayElements(env, array, pBuffer, JNI_ABORT);
+	return result;
 } 
 
 jint Java_ice_caster_android_shout_ShoutOutputStream_jniInit(JNIEnv*  env,jobject  this,jstring urlservercast,jint puertocast,jstring montajecast,jstring usuariocast,jstring passwdcast) {
