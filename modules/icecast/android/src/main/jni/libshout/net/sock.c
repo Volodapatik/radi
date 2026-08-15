@@ -683,7 +683,7 @@ int sock_try_connection (int sock, const char *hostname, const unsigned port)
         return -1;
     }
 
-    memcpy(&server.sin_addr, &sin.sin_addr, sizeof(struct sockaddr_in));
+    memcpy(&server.sin_addr, &sin.sin_addr, sizeof(server.sin_addr));
 
     server.sin_family = AF_INET;
     server.sin_port = htons(port);
