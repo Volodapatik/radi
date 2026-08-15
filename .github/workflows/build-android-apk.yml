@@ -33,8 +33,5 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Initialize EAS project
-        run: eas init --account vova202s-team --non-interactive
-
       - name: Build APK
         run: eas build --platform android --profile preview --non-interactive

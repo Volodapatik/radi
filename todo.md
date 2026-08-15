@@ -80,3 +80,9 @@
 
 - [ ] Verify `eas.json` exists in `Volodapatik/radi` main at the workflow checkout commit
 - [ ] Confirm the workflow builds from main and does not overwrite or omit eas.json
+
+## Dynamic app.config.ts EAS fix
+
+- [ ] Remove the `eas init` CI step that tries to modify dynamic app.config.ts
+- [ ] Keep eas.json and Expo owner configuration for non-interactive EAS build
+- [ ] Re-run the workflow and verify APK build progress
