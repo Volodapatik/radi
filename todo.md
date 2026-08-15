@@ -108,3 +108,9 @@
 
 - [x] Add EAS projectId `08beb9a3-2404-4c87-9acf-441d3beaf02c` to the local Termux app.config.ts copy
 - [x] Run `eas build:view` and retrieve the detailed Gradle log
+
+## Second native Gradle failure
+
+- [x] Retrieve the detailed EAS log for build `944c4a9f-c859-4879-8e75-e2a48a155c86`
+- [x] Fix the next native compilation error revealed after the `httpp.c` pointer-type fix
+- [ ] Re-run the GitHub Actions APK build
