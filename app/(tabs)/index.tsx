@@ -28,6 +28,7 @@ type IcecastApi = {
   disconnect: () => Promise<boolean>;
   startBroadcast: (host: string, port: number, mountPoint: string, username: string, password: string, folderUri: string) => Promise<boolean>;
   stopBroadcast: () => Promise<boolean>;
+  getBroadcastStatus: () => Promise<{ status: string; message: string }>;
 };
 
 const Icecast = Platform.OS === "android" ? requireNativeModule<IcecastApi>("Icecast") : null;
@@ -98,6 +99,24 @@ export default function HomeScreen() {
     streamActiveRef.current = false;
     void Icecast?.stopBroadcast();
   }, []);
+
+  useEffect(() => {
+    if (!Icecast || (!isConnecting && !isOnAir)) return;
+    const timer = setInterval(() => {
+      void Icecast.getBroadcastStatus().then((status) => {
+        if (status.status === "ERROR") {
+          streamActiveRef.current = false;
+          setIsConnecting(false);
+          setIsOnAir(false);
+          setLastError(status.message || "Caster.fm зупинив трансляцію");
+        } else if (status.status === "CONNECTED" || status.status === "TRACK") {
+          setIsConnecting(false);
+          setIsOnAir(true);
+        }
+      }).catch(() => undefined);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [isConnecting, isOnAir]);
 
   const streamTracks = async (startIndex: number) => {
     let index = startIndex;

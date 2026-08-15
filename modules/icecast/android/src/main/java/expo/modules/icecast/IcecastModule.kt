@@ -52,6 +52,15 @@ class IcecastModule : Module() {
       true
     }
 
+    AsyncFunction("getBroadcastStatus") {
+      val context = appContext.reactContext ?: throw IllegalStateException("Android context unavailable")
+      val prefs = context.getSharedPreferences("icecast_broadcast_status", android.content.Context.MODE_PRIVATE)
+      mapOf(
+        "status" to (prefs.getString("status", "STOPPED") ?: "STOPPED"),
+        "message" to (prefs.getString("message", "") ?: "")
+      )
+    }
+
     AsyncFunction("stopBroadcast") {
       val context = appContext.reactContext
       if (context != null) {

@@ -10,14 +10,18 @@ public class ShoutOutputStream {
 
     public void init(String url, int port, String mount, String user, String password) throws IOException {
         if (jniInit(url, port, mount, user, password) <= 0) {
-            throw new IOException("Icecast source connection was rejected");
+            throw new IOException("Caster.fm connection rejected: " + getLastError());
         }
     }
 
     public void write(byte[] buffer, int count) throws IOException {
         if (jniSend(buffer, count) < 0) {
-            throw new IOException("Icecast send failed");
+            throw new IOException("Caster.fm send failed: " + getLastError());
         }
+    }
+
+    public String getLastError() {
+        return jniGetError();
     }
 
     public void close() {
@@ -25,6 +29,7 @@ public class ShoutOutputStream {
     }
 
     private native int jniInit(String url, int port, String mount, String user, String password);
+    private native String jniGetError();
     private native int jniSend(byte[] buffer, int length);
     private native int jniClose();
 }

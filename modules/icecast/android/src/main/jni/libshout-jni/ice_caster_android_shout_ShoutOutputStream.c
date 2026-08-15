@@ -96,7 +96,19 @@ jint Java_ice_caster_android_shout_ShoutOutputStream_jniInit(JNIEnv*  env,jobjec
 	return init_icecast((unsigned char*)urlservercastA,puertocast,(unsigned char*)montajecastA,(unsigned char*)usuariocastA,(unsigned char*)passwdcastA, 0);
 }
 
+jstring Java_ice_caster_android_shout_ShoutOutputStream_jniGetError(JNIEnv* env, jobject obj) {
+	const char *message = "Icecast error unavailable";
+	if (shout != NULL) {
+		const char *nativeMessage = shout_get_error(shout);
+		if (nativeMessage != NULL && nativeMessage[0] != '\0') {
+			message = nativeMessage;
+		}
+	}
+	return (*env)->NewStringUTF(env, message);
+}
+
 jint Java_ice_caster_android_shout_ShoutOutputStream_jniClose(JNIEnv* env, jobject obj) {
 	close_shout();
+	shout = NULL;
 	return 1;
 }

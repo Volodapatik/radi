@@ -120,3 +120,10 @@
 - [x] Retrieve the detailed EAS log for build `b28b3dc4-fdf3-4909-930a-8844c8d91fc6`
 - [x] Fix the next native compilation error revealed after the socket macro fix
 - [x] Re-run the GitHub Actions APK build
+
+## Caster.fm delivery failure
+
+- [ ] Investigate why the app shows ON AIR while Caster.fm and the public radio page show Off Air
+- [ ] Verify libshout handshake, host/port, username, mount point, password, and stream format
+- [ ] Make app status reflect actual server connection and first successful audio send
+- [ ] Build and test a corrected APK against the user's Caster.fm channel
