@@ -204,7 +204,7 @@ static int hex(char c)
 static char *url_escape(char *src)
 {
     int len = strlen(src);
-    unsigned char *decoded;
+    char *decoded;
     int i;
     char *dst;
     int done = 0;
