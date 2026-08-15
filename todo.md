@@ -97,3 +97,4 @@
 
 - [ ] Replace legacy LAME bcopy compatibility macro with standard string APIs for Android NDK
 - [ ] Re-run EAS APK build after native C fix
+- [ ] Remove the duplicated bcopy fallback from LAME id3tag.c
