@@ -51,7 +51,7 @@ int writeVorbisDataToEncoderDataFeed(JNIEnv *env, jobject* encoderDataFeed, jmet
 
     //No data to write, just exit
     if(bytes == 0) {
-        return;
+        return 0;
     }
 
     //Create and copy the contents of what we're writing to the java byte array
