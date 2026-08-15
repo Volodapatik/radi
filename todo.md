@@ -103,3 +103,8 @@
 
 - [ ] Cast libshout mp3 buffer pointers to `const unsigned char*` for `shout_send_raw`
 - [ ] Re-run EAS build after the libshout NDK fix
+
+## Local EAS project linkage
+
+- [x] Add EAS projectId `08beb9a3-2404-4c87-9acf-441d3beaf02c` to the local Termux app.config.ts copy
+- [x] Run `eas build:view` and retrieve the detailed Gradle log
