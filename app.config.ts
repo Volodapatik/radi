@@ -40,6 +40,11 @@ const env = {
 
 const config: ExpoConfig = {
   name: env.appName,
+  extra: {
+    eas: {
+      projectId: "08beb9a3-2404-4c87-9acf-441d3beaf02c",
+    },
+  },
   slug: env.appSlug,
   owner: "vova202s-team",
   version: "1.0.0",

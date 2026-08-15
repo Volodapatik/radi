@@ -86,3 +86,9 @@
 - [ ] Remove the `eas init` CI step that tries to modify dynamic app.config.ts
 - [ ] Keep eas.json and Expo owner configuration for non-interactive EAS build
 - [ ] Re-run the workflow and verify APK build progress
+
+## EAS project ID linkage
+
+- [ ] Add EAS projectId `08beb9a3-2404-4c87-9acf-441d3beaf02c` to dynamic app.config.ts
+- [ ] Push the projectId fix to `Volodapatik/radi`
+- [ ] Re-run the APK workflow after project linkage
