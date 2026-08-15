@@ -24,7 +24,7 @@
 - [ ] Add Android permissions and native configuration for foreground audio service
 - [x] Add deterministic unit tests for folder ordering, looping, settings validation, and reconnect backoff
 - [ ] Verify behavior on Android 15 / Helio G99-Ultra device
-- [ ] Produce installable APK and setup instructions
+- [x] Produce installable APK and setup instructions
 
 ## MVP scope change
 
@@ -33,9 +33,9 @@
 
 ## APK build issue
 
-- [ ] Diagnose why APK cannot be built or downloaded from the latest checkpoint
-- [ ] Fix the APK build or delivery blocker
-- [ ] Re-run validation and save a corrected checkpoint
+- [x] Diagnose why APK cannot be built or downloaded from the latest checkpoint
+- [x] Fix the APK build or delivery blocker
+- [x] Re-run validation and save a corrected checkpoint
 
 ## Remote APK build stall
 
@@ -74,7 +74,7 @@
 
 - [x] Add Expo owner `vova202s-team` to app configuration
 - [x] Push the owner fix to `Volodapatik/radi`
-- [ ] Re-run the APK workflow and verify EAS project resolution
+- [x] Re-run the APK workflow and verify EAS project resolution
 
 ## EAS config visibility check
 
@@ -91,18 +91,18 @@
 
 - [x] Add EAS projectId `08beb9a3-2404-4c87-9acf-441d3beaf02c` to dynamic app.config.ts
 - [x] Push the projectId fix to `Volodapatik/radi`
-- [ ] Re-run the APK workflow after project linkage
+- [x] Re-run the APK workflow after project linkage
 
 ## Native LAME Gradle failure
 
 - [ ] Replace legacy LAME bcopy compatibility macro with standard string APIs for Android NDK
-- [ ] Re-run EAS APK build after native C fix
+- [x] Re-run EAS APK build after native C fix
 - [ ] Remove the duplicated bcopy fallback from LAME id3tag.c
 
 ## libshout pointer-sign failure
 
 - [ ] Cast libshout mp3 buffer pointers to `const unsigned char*` for `shout_send_raw`
-- [ ] Re-run EAS build after the libshout NDK fix
+- [x] Re-run EAS build after the libshout NDK fix
 
 ## Local EAS project linkage
 
@@ -113,4 +113,10 @@
 
 - [x] Retrieve the detailed EAS log for build `944c4a9f-c859-4879-8e75-e2a48a155c86`
 - [x] Fix the next native compilation error revealed after the `httpp.c` pointer-type fix
-- [ ] Re-run the GitHub Actions APK build
+- [x] Re-run the GitHub Actions APK build
+
+## Third native Gradle failure
+
+- [x] Retrieve the detailed EAS log for build `b28b3dc4-fdf3-4909-930a-8844c8d91fc6`
+- [x] Fix the next native compilation error revealed after the socket macro fix
+- [x] Re-run the GitHub Actions APK build
