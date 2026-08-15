@@ -58,12 +58,25 @@ jobs:
           echo "===== Native build errors ====="
           grep -Ein 'error:|fatal error|FAILURE:|failed|undefined reference|pointer-sign|macro redefined|BUILD FAILED' eas-build-log.jsonl | tail -120 || true
 
+      - name: Download APK artifact
+        if: steps.eas-build.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          build_url=$(grep -oE 'https://expo.dev/accounts/[^ ]+/projects/[^ ]+/builds/[a-f0-9-]+' eas-build-output.log | tail -1)
+          build_id="${build_url##*/}"
+          eas build:download --build-id "$build_id" --non-interactive
+          apk_path=$(find . -maxdepth 1 -type f -name '*.apk' | head -1)
+          test -n "$apk_path"
+          mv "$apk_path" radio-folder-streamer.apk
+
       - name: Upload EAS diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: eas-build-diagnostics
           path: |
+            radio-folder-streamer.apk
             eas-build-output.log
             eas-build-metadata.json
             eas-build-log.jsonl
