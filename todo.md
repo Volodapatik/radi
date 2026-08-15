@@ -125,5 +125,5 @@
 
 - [ ] Investigate why the app shows ON AIR while Caster.fm and the public radio page show Off Air
 - [ ] Verify libshout handshake, host/port, username, mount point, password, and stream format
-- [ ] Make app status reflect actual server connection and first successful audio send
-- [ ] Build and test a corrected APK against the user's Caster.fm channel
+- [x] Make app status reflect actual server connection and first successful audio send
+- [x] Build and test a corrected APK against the user's Caster.fm channel
