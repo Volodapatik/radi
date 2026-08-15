@@ -92,3 +92,8 @@
 - [x] Add EAS projectId `08beb9a3-2404-4c87-9acf-441d3beaf02c` to dynamic app.config.ts
 - [x] Push the projectId fix to `Volodapatik/radi`
 - [ ] Re-run the APK workflow after project linkage
+
+## Native LAME Gradle failure
+
+- [ ] Replace legacy LAME bcopy compatibility macro with standard string APIs for Android NDK
+- [ ] Re-run EAS APK build after native C fix

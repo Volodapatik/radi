@@ -31,20 +31,9 @@
 #include <stdio.h>
 #include <assert.h>
 
-#ifdef STDC_HEADERS
-# include <stdlib.h>
-# include <string.h>
-#else
-# ifndef HAVE_STRCHR
-#  define strchr index
-#  define strrchr rindex
-# endif
-char   *strchr(), *strrchr();
-# ifndef HAVE_MEMCPY
-#  define memcpy(d, s, n) bcopy ((s), (d), (n))
-#  define memmove(d, s, n) bcopy ((s), (d), (n))
-# endif
-#endif
+/* Android NDK/Clang provides the standard C string and memory APIs. */
+#include <stdlib.h>
+#include <string.h>
 
 #if  defined(__riscos__)  &&  defined(FPA10)
 # include "ymath.h"
